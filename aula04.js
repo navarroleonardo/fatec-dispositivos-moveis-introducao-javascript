@@ -22,4 +22,16 @@ const filtrar = (vetor, condicao) => {
 }
 
 console.log(filtrar(nomes, nome => nome.toLocaleLowerCase().startsWith("a")))
-console.log(filtrar(valores, (num) => num % 2 == 0))
+console.log(filtrar(valores, valor => valor % 2 == 0))
+
+const mapear = (vetor, regra) => {
+    const result = [];
+    for (let i = 0; i < vetor.length; i++) {
+        const elemento = vetor[i];
+        result.push(regra(elemento))
+    }
+    return result;
+}
+
+console.log(mapear(nomes, nome => nome.toLocaleUpperCase()));
+console.log(mapear(valores, valor => valor * valor));
