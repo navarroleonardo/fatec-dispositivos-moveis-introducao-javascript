@@ -11,3 +11,15 @@ const valores = [1, 2, 3, 4];
 const soma = valores.reduce((acumulado, valor)=> acumulado + valor);
 
 console.log({ variavel: 'soma', data: soma });
+
+const filtrar = (vetor, condicao) => {
+    const result = [];
+    for (let i = 0; i < vetor.length; i++) {
+        const elemento = vetor[i];
+        if (condicao(elemento)) result.push(elemento)
+    }
+    return result;
+}
+
+console.log(filtrar(nomes, nome => nome.toLocaleLowerCase().startsWith("a")))
+console.log(filtrar(valores, (num) => num % 2 == 0))
